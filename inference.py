@@ -1,5 +1,5 @@
 import torch
-from transformers import BertTokenizer
+from transformers import BertTokenizer, BertModel
 
 from models.recommendation_model import RecommendationModel
 from utils.data_preprocessor import load_and_preprocess_dataset

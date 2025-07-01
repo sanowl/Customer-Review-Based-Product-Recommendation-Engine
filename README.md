@@ -34,13 +34,25 @@ This project implements an advanced recommendation engine using the "amazon_us_r
 
 ## Usage
 
-1. Run the script:
+1. Train the model:
 
-   ```
-   python recommendation_engine.py
+   ```bash
+   python train.py
    ```
 
-   The script will load the dataset, preprocess it, train the recommendation model, evaluate the model on the test set, and provide an example usage of generating recommendations for a specific user.
+   This downloads the dataset, preprocesses it, trains the Transformer-enhanced recommender, evaluates on a held-out split, and saves the weights to `recommendation_model.pth`.
+
+2. Generate recommendations (after training):
+
+   ```bash
+   python inference.py
+   ```
+
+   The script loads the saved weights and prints the top-K product suggestions for an example user ID. Adjust the `user_id` variable or wrap the call in an API to integrate with your application.
+
+3. Quick experiment (all-in-one):
+
+   The legacy `main.py` still exists as a minimal, self-contained example if you prefer a single script that trains and recommends in one go. However, the modular pipeline above is recommended for serious experimentation.
 
 2. Customize the dataset and model:
    - You can modify the code to use a different subset of the "amazon_us_reviews" dataset or a different dataset altogether. Update the `load_dataset` function call with the appropriate dataset name and subset.
